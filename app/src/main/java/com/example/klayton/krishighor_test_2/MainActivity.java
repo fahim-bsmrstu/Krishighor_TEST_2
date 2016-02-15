@@ -1,5 +1,6 @@
 package com.example.klayton.krishighor_test_2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.klayton.krishighor_test_2.reg.Login;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,11 +45,20 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+
+        switch (id)
+        {
+            case R.id.action_settings:
+                return true;
+
+            case R.id.login:
+                Intent i = new Intent(getApplicationContext(), Login.class);
+                startActivity(i);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
